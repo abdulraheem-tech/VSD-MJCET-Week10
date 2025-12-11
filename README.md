@@ -1,4 +1,4 @@
-# Caravel Functional-vs-GLS Verification Task
+# I. Caravel Functional-vs-GLS Verification Task
 
 # Objective:
 Verify that Caravel’s RTL simulation and Gate-Level Simulation (GLS) produce identical functional results for the hkspi test and subsequently for all other DV tests inside efabless/caravel/verilog/dv.
@@ -443,7 +443,7 @@ $display("Monitor: Test HK SPI (RTL) Passed");
 
 This string is fixed at the Verilog source level—it doesn't check whether you compiled with `-DGL` or used gate-level netlists.
 
-## How to confirm you're actually running GLS
+## II How to confirm you're actually running GLS
 
 Even though the message says "(RTL)", you **are** running a mixed RTL+GL simulation if:
 
@@ -510,3 +510,99 @@ iverilog -Ttyp \
 ## Bottom line
 
 The message is cosmetic; the actual simulation **is** using GL housekeeping if you followed the compile steps correctly. The register read values matching between RTL and GLS logs proves functional equivalence, which is the real verification objective.[2][4][1]
+
+## III.  Understanding the Commands
+
+### What is iverilog?
+
+Icarus Verilog (`iverilog`) is an open-source Verilog compiler that converts Verilog source code into an executable simulation format.
+
+### What is vvp?
+
+`vvp` (Verilog Simulation Runtime) executes the compiled `.vvp` file produced by iverilog.
+
+### What is hkspi?
+
+The housekeeping SPI (hkspi) is a 4-pin SPI interface in Caravel that allows external access to configuration registers, CPU control, and system monitoring.
+
+### What does the hkspi test verify?
+
+The test verifies:
+- SPI communication protocol (Mode 0)
+- Register read/write operations through housekeeping SPI
+- Proper data transfer between host and management SoC
+- Register values match expected configuration
+
+***
+
+## Quick Reference - Complete Workflow
+
+Copy and paste these commands for a complete RTL simulation (assuming setup is done):
+
+```bash
+# Set environment
+export CARAVEL_ROOT=$(pwd | sed 's|/verilog/dv/caravel/mgmt_soc/hkspi||')
+export PDK_ROOT=$CARAVEL_ROOT/pdk
+export PDK=sky130A
+cd $CARAVEL_ROOT/verilog/dv/caravel/mgmt_soc/hkspi
+
+# Set VexRiscv path
+export VEX_FILE=$(find $CARAVEL_ROOT/verilog/rtl/mgmt_core_wrapper -name "VexRiscv*.v" | head -n 1)
+
+# Compile
+iverilog -Ttyp -DFUNCTIONAL -DSIM -D USE_POWER_PINS -D UNIT_DELAY=#1 \
+  -I $CARAVEL_ROOT/verilog/dv/caravel/mgmt_soc \
+  -I $CARAVEL_ROOT/verilog/dv/caravel \
+  -I $CARAVEL_ROOT/verilog/rtl \
+  -I $CARAVEL_ROOT/verilog \
+  -I $CARAVEL_ROOT/verilog/rtl/mgmt_core_wrapper/verilog/rtl \
+  -I $PDK_ROOT/sky130A \
+  -y $CARAVEL_ROOT/verilog/rtl \
+  -y $CARAVEL_ROOT/verilog/rtl/mgmt_core_wrapper/verilog/rtl \
+  $PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v \
+  $PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v \
+  $PDK_ROOT/sky130A/libs.ref/sky130_fd_io/verilog/sky130_fd_io.v \
+  $CARAVEL_ROOT/verilog/dv/dummy_fill.v \
+  $VEX_FILE \
+  hkspi_tb.v -o hkspi.vvp
+
+# Run simulation
+vvp hkspi.vvp | tee rtl_hkspi.log
+
+# Verify
+grep "Monitor: Test HK SPI (RTL) Passed" rtl_hkspi.log
+```
+
+***
+
+## Troubleshooting Checklist
+
+If simulation fails, verify:
+
+- [ ] You're in the correct directory (`pwd` shows `.../hkspi`)
+- [ ] `hkspi.hex` exists in current directory (`ls hkspi.hex`)
+- [ ] `$CARAVEL_ROOT` is set correctly (`echo $CARAVEL_ROOT`)
+- [ ] `$VEX_FILE` points to VexRiscv file (`echo $VEX_FILE`)
+- [ ] PDK files exist (`ls $PDK_ROOT/sky130A/libs.ref/`)
+- [ ] mgmt_core_wrapper was cloned (`ls $CARAVEL_ROOT/verilog/rtl/mgmt_core_wrapper`)
+- [ ] `caravel_netlists.v` was fixed (check with `grep "gl/" $CARAVEL_ROOT/verilog/rtl/caravel_netlists.v`)
+- [ ] Compilation completed without errors
+
+***
+
+## Next Steps
+
+After successful RTL simulation:
+
+1. **Compare with GLS (Gate-Level Simulation)** to verify functional equivalence
+2. **Run other Caravel DV tests** using similar methodology
+3. **Modify test parameters** in `hkspi_tb.v` for custom verification
+4. **Generate waveforms** by uncommenting `$dumpfile`/`$dumpvars` in testbench
+
+***
+# IV Challengens
+
+1. Space Issue in the laptop
+2. Done in the codespcae online
+3. Taking so much time on each step
+4. Completed the task on online codespace.
