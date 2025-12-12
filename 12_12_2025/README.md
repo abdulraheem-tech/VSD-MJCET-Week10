@@ -80,7 +80,10 @@ check synth.tcl file
 ```
 dc_shell -f ../synth.tcl
 ```
-<img width="1254" height="822" alt="image" src="https://github.com/user-attachments/assets/20d0523d-86a9-40fb-abaa-79ad4b934194" />
+<img width="1240" height="1014" alt="image" src="https://github.com/user-attachments/assets/25112901-2f8a-434a-9f45-b355c70b3385" />
+
+<img width="1279" height="1009" alt="image" src="https://github.com/user-attachments/assets/23e1f25f-27a6-4083-801d-520fb8a6f563" />
+
 
 This should update the caravel_snthesis.v file in [./synthesis/output](./synthesis/output) folder
 
@@ -262,7 +265,8 @@ If you encounter any errors, they will now be related to your actual design rath
    make
    vvp hkspi.vvp
    ```
-<img width="928" height="543" alt="image" src="https://github.com/user-attachments/assets/b4f1182b-b43b-4477-9656-6a0a626582b4" />
+<img width="710" height="95" alt="image" src="https://github.com/user-attachments/assets/fa2c70d8-3425-4aa9-a5dd-a85ac94b2fa0" />
+
 
 if you get the following above errors follow the below steps
 
@@ -350,15 +354,17 @@ This will convert the blackboxed modules to external includes, allowing you to p
    make
    vvp hkspi.vvp
    ```
-<img width="728" height="383" alt="image" src="https://github.com/user-attachments/assets/8d45c1cd-c3cf-4d5a-b282-04c6fa42915f" />
-<img width="736" height="490" alt="image" src="https://github.com/user-attachments/assets/6444f84e-0fa9-47ff-80ec-84d21f2bca6d" />
+<img width="710" height="95" alt="image" src="https://github.com/user-attachments/assets/f763363e-8407-4e32-915c-59f12a0a43a0" />
+<img width="474" height="495" alt="image" src="https://github.com/user-attachments/assets/db845f19-a719-4750-912a-5f6784525b6c" />
+
 
 17. Visualize the Testbench waveforms for complete design using following command
    ```
    gtkwave hkspi.vcd hkspi_tb.v
    ```
+<img width="489" height="494" alt="image" src="https://github.com/user-attachments/assets/f86187e7-7182-49d0-9725-6e5d091285bb" />
+<img width="1529" height="985" alt="image" src="https://github.com/user-attachments/assets/68406945-6c9c-4368-b0c6-f11420d9aab2" />
 
-<img width="1580" height="888" alt="image" src="https://github.com/user-attachments/assets/51c2e6c4-615e-42c6-8c00-f6fa82542aa9" />
 
 18. Compare output from functional Simulation and GLS to verify the synthesis output
 
@@ -370,36 +376,37 @@ This will convert the blackboxed modules to external includes, allowing you to p
 ### Area Post Synth Report
 
 ```
-Warning: Design 'vsdcaravel' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'vsdcaravel' has '5' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 Report : area
 Design : vsdcaravel
 Version: T-2022.03-SP5
-Date   : Fri Dec 12 17:43:42 2025
+Date   : Fri Dec 12 19:09:11 2025
 ****************************************
 
 Library(s) Used:
 
     tsl18fs120_scl_ff (File: /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db)
+    tsl18cio250_min (File: /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db)
 
-Number of ports:                        12749
-Number of nets:                         37554
-Number of cells:                        30961
+Number of ports:                        14246
+Number of nets:                         38531
+Number of cells:                        31048
 Number of combinational cells:          18422
-Number of sequential cells:              6882
-Number of macros/black boxes:              16
+Number of sequential cells:              6889
+Number of macros/black boxes:              17
 Number of buf/inv:                       3532
 Number of references:                       2
 
 Combinational area:             341951.960055
 Buf/Inv area:                    28798.119889
 Noncombinational area:          431036.399128
-Macro/Black Box area:              100.320000
-Net Interconnect area:           32791.102344
+Macro/Black Box area:             1395.760063
+Net Interconnect area:           32654.490674
 
-Total cell area:                773088.679183
-Total area:                     805879.781527
+Total cell area:                774384.119246
+Total area:                     807038.609920
 
 Information: This design contains black box (unknown) components. (RPT-8)
 1
