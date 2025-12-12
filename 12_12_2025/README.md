@@ -51,7 +51,8 @@ Before using this repository, ensure you have the following dependencies install
    make
    vvp hkspi.vvp
    ```
-   
+   <img width="456" height="493" alt="3" src="https://github.com/user-attachments/assets/92b02840-3b1c-4ced-bf70-1b68621a89de" />
+
 
 - you should receive output similar to following output on successfull execution
 
@@ -97,7 +98,7 @@ Here's the complete step-by-step guide to set up Gate-Level Simulation from scra
 ## **Step 1: Navigate to GLS Directory**
 
 ```bash
-cd ~/rehman/vsdRiscvScl180/gls
+cd ~/vsdRiscvScl180/gls
 ```
 
 ## **Step 2: Copy All Required RTL Files to GL Directory**
@@ -150,7 +151,7 @@ BEHAVIOURAL_MODELS = ../gls
 RISCV_TYPE ?= rv32imc
 PDK_PATH = /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/verilog/vcs_sim_model 
 FIRMWARE_PATH = ../gls
-GCC_PATH?=/home/prakhan/rehman/riscv32-unknown-elf/bin
+GCC_PATH?=/home/maraheem/riscv32-unknown-elf/bin
 GCC_PREFIX?=riscv32-unknown-elf
 
 SIM_DEFINES = -DFUNCTIONAL -DSIM
