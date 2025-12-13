@@ -1,4 +1,3 @@
-
 # ========================================================================
 # Synopsys DC Synthesis Script for vsdcaravel
 # Modified to keep POR and Memory modules as complete RTL blackboxes
@@ -21,7 +20,7 @@ set_app_var link_library $link_library
 # ========================================================================
 # Define directory paths
 # ========================================================================
-set root_dir "/home/maraheem/raheem/vsdRiscvScl180"
+set root_dir "/home/maraheem/raheem/vsdRiscvScl180" 
 set io_lib "/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero"
 set verilog_files "$root_dir/rtl"
 set top_module "vsdcaravel"
@@ -288,3 +287,4 @@ puts "INFO: ========================================"
 
 # Exit dc_shell
 # dc_shell> exit
+
