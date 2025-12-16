@@ -10,7 +10,7 @@
 
 - Declare `resetn` as input
 
- width="229" height="80" alt="image" src="https://github.com/user-attachments/assets/5c144f4a-7434-44cd-add8-eba003b32c34" />
+ <img width="229" height="80" alt="image" src="https://github.com/user-attachments/assets/5c144f4a-7434-44cd-add8-eba003b32c34" />
 
 
 ```verilog
@@ -353,7 +353,6 @@ puts "INFO: ========================================"
 # Exit dc_shell
 # dc_shell> exit
 ```
-```
 
 ```
 dc_shell -f ../synth.tcl | tee status.log
@@ -396,7 +395,6 @@ After synthesis report files will be generated in the report directory such as a
 
 - As we remvoed dummy_por completely so we don't need to include it again, instead have to declare the new external `resetn` in the `hkspi_tb.v`
 - I have used the following Makefile
-
 
 ```
 # SPDX-FileCopyrightText: 2020 Efabless Corporation
