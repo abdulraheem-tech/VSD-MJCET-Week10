@@ -516,6 +516,18 @@ The following commands
 
 <img width="926" height="690" alt="GLS passed" src="https://github.com/user-attachments/assets/ead78e69-8530-45e1-99e8-0a499a97a1c9" />
 
+<img width="1680" height="1050" alt="image" src="https://github.com/user-attachments/assets/973e0365-e040-4267-8fbf-ac6e1c8e8a1c" />
+
+## Final Conclusion of Task3
+The SCL180 External Pin Reset is used without the analog model of Power on Reset
+<img width="1108" height="845" alt="image" src="https://github.com/user-attachments/assets/bc86cd10-4ac0-4510-bbd6-b81f26b797a6" />
+
+
+
+
+
+
+
 
 
 
