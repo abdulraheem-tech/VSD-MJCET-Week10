@@ -506,7 +506,14 @@ clean:
 The following commands
 - make clean
 - Then copy the hkspi.hex file from dv/hkspi
+- the compile
 - Then run `make`
+<img width="1801" height="490" alt="GLcommad" src="https://github.com/user-attachments/assets/379d7835-7b8a-4e90-b60a-895e86cffb9e" />
+
+<img width="975" height="697" alt="GLSrecompiling" src="https://github.com/user-attachments/assets/d717ba04-752b-4354-aea6-a9960f675f08" />
+
+<img width="926" height="690" alt="GLS passed" src="https://github.com/user-attachments/assets/ead78e69-8530-45e1-99e8-0a499a97a1c9" />
+
 
 
 
