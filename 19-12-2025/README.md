@@ -70,7 +70,13 @@ o Aligned to edges (no floating pads)
 
 ---
 
-##
+### 3. Reference NDM library
+
+```tcl
+set REF_LIB \
+"/home/Synopsys/pdk/SCL_PDK_3/work/run1/icc2_workshop_collaterals/standaloneFlow/work/raven_wrapperNangate/lib.ndm"
+```
+
 
 ### 3.2 Files Structure
 
@@ -132,16 +138,23 @@ create_placement_blockage \
 
 These regions provide **continuous IO bands** around the die, enabling even distribution of IO ports and avoiding overlap with core placement. 
 
-
-
+```tcl
+gui_show_man_page
+```
 
 <div align="center" >
  <img width="1610" height="1025" alt="image" src="https://github.com/user-attachments/assets/08954d88-4bab-483f-ba2b-9a0b2e455764" />
-
 </div>
+
+
+```tcl
+get_ports
 ```
+
+```tcl
 place_pins -self
 ```
+
 <div align="center" >
  <img width="1837" height="944" alt="image" src="https://github.com/user-attachments/assets/796fbb06-6bf7-4949-95bb-fba257009ed7" />
 
