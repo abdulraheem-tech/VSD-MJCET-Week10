@@ -87,3 +87,14 @@ Started debugging
 # Objective: 
 Restarted the debugging and then done changes in pads.v only scl180 used completely removed the sky130, updated the files
 
+# 18-12-2025. 
+Test (RTL) Failed for goio, irq, storage, and mjpr_ctrl ...........Failed
+
+# 19-12-2025. 
+The objective of this task is to create a correct SoC floorplan using ICC2, meeting exact die size and IO pad placement targets, and to develop hands-on familiarity with ICC2 floorplanning commands and concepts.
+Done 
+•	Set die area to 3.588 mm × 5.188 mm
+•	Define a reasonable core offset
+•	Place IO pads around all four sides
+
+
