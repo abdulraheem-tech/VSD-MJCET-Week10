@@ -32,11 +32,10 @@ create_lib $DESIGN_LIBRARY \
 # (Netlist is read only to create design context;
 # unresolved cells are acceptable for floorplan-only task)
 # ---------------------------------------------------------
-read_verilog -top $DESIGN_NAME \ "/home/maraheem/raheem/task5/vsdRiscvScl180/FP/vsdcaravel_synthesis.v"
+read_verilog -top $DESIGN_NAME \
+    "/home/maraheem/raheem/task5/vsdRiscvScl180/FP/vsdcaravel_synthesis.v"
 
 current_design $DESIGN_NAME
-
-
 
 # ---------------------------------------------------------
 # Floorplan Definition (MANDATORY)
@@ -51,6 +50,13 @@ initialize_floorplan \
     -control_type die \
     -boundary {{0 0} {3588 5188}} \
     -core_offset {200 200 200 200}
+
+# ---------------------------------------------------------
+# Floorplan Checks (Recommended)
+# ---------------------------------------------------------
+check_floorplan
+report_floorplan
+
 # ---------------------------------------------------------
 # IO Regions using Placement Blockages (Corrected)
 # ---------------------------------------------------------
@@ -79,7 +85,6 @@ create_placement_blockage \
   -type hard \
   -boundary {{3488 100} {3588 5088}}
 
-
 # ---------------------------------------------------------
 # Macro Placement
 # ---------------------------------------------------------
@@ -89,11 +94,16 @@ create_placement_blockage \
 # synthesized into logic and optimized away.
 # Therefore, no macro placement is performed here.
 # ---------------------------------------------------------
+
+# ---------------------------------------------------------
+# Write DEF Output (ADDED)
+# ---------------------------------------------------------
 write_def vsdcaravel_floorplan.def
+
 # ---------------------------------------------------------
 # Reports
 # ---------------------------------------------------------
-report_floorplan >  "/home/maraheem/raheem/task5/vsdRiscvScl180/FP/floorplan_report.txt"
+report_floorplan > "/home/maraheem/raheem/task5/vsdRiscvScl180/FP/floorplan_report.txt"
 
 # ---------------------------------------------------------
 # Save and Launch GUI
@@ -101,3 +111,4 @@ report_floorplan >  "/home/maraheem/raheem/task5/vsdRiscvScl180/FP/floorplan_rep
 save_block -force -label FLOORPLAN_ONLY
 save_lib -all
 start_gui
+
