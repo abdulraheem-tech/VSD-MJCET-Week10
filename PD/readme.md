@@ -115,7 +115,7 @@ puts "RM-info : Running script [info script]\n"
 set DESIGN_NAME 		"raven_wrapper" ;# Required; name of the design to be worked on; also used as the block name when scripts save or copy a block
 set LIBRARY_SUFFIX		"Nangate" ;# Suffix for the design library name ; default is unspecified   
 set DESIGN_LIBRARY 		"${DESIGN_NAME}${LIBRARY_SUFFIX}" ;# Name of the design library; default is ${DESIGN_NAME}${LIBRARY_SUFFIX}
-set REFERENCE_LIBRARY 		[list /home/prakhan/task_6/icc2_workshop_collaterals/nangate_stdcell.lef /home/prakhan/task_6/icc2_workshop_collaterals/sram/sram_32_1024_freepdk45.lef]	;# Required; a list of reference libraries for the design library.
+set REFERENCE_LIBRARY 		[list /home/raheem/task6/icc2_workshop_collaterals/nangate_stdcell.lef /home/raheem/task6/icc2_workshop_collaterals/sram/sram_32_1024_freepdk45.lef]	;# Required; a list of reference libraries for the design library.
 					;#	for library configuration flow (LIBRARY_CONFIGURATION_FLOW set to true below): 
 					;#		- specify the list of physical source files to be used for library configuration during create_lib
 				       	;# 	for hierarchical designs using bottom-up flows: include subblock design libraries in the list;
@@ -124,8 +124,8 @@ set REFERENCE_LIBRARY 		[list /home/prakhan/task_6/icc2_workshop_collaterals/nan
 					;#		  in order to transition between hierarchical DP and hierarchical PNR flows properly, 
 					;#		  absolute paths are a requirement.
 set COMPRESS_LIBS               "false" ;# Save libs as compressed NDM; only used in DP.
-#set VERILOG_NETLIST_FILES      "/home/kunal/workshop/icc2_workshop_collaterals/pnrScripts/spi_slave.synth.v"
-set VERILOG_NETLIST_FILES	"/home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v"	;# Verilog netlist files;
+
+set VERILOG_NETLIST_FILES	"/home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v"	;# Verilog netlist files;
 					;# 	for DP: required
 					;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
 set UPF_FILE 			""	;# A UPF file
@@ -152,7 +152,7 @@ set TCL_MCMM_SETUP_FILE		"./init_design.mcmm_example.auto_expanded.tcl"	;# Speci
 					;# 	for DP: required
 					;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
 
-set TECH_FILE 			"/home/prakhan/task_6/icc2_workshop_collaterals/nangate.tf" 	;# A technology file; TECH_FILE and TECH_LIB are mutually exclusive ways to specify technology information; 
+set TECH_FILE 			"/home/raheem/task6/icc2_workshop_collaterals/nangate.tf" 	;# A technology file; TECH_FILE and TECH_LIB are mutually exclusive ways to specify technology information; 
 					;# TECH_FILE is recommended, although TECH_LIB is also supported in ICC2 RM. 
 set TECH_LIB			""	;# Specify the reference library to be used as a dedicated technology library;
                         		;# as a best practice, please list it as the first library in the REFERENCE_LIBRARY list 
@@ -211,7 +211,7 @@ set LIBRARY_CONFIGURATION_FLOW	false	;# Set it to true enables library configura
 					;# source files for the library configuration flow. Also search_path (in icc2_pnr_setup.tcl) should include paths 
 					;# to these .db and physical source files.
 
-set LINK_LIBRARY		[list /home/prakhan/task_6/icc2_workshop_collaterals/nangate_typical.db /home/prakhan/task_6/icc2_workshop_collaterals/sram_32_1024_freepdk45_TT_1p0V_25C_lib.db]	;# Specify .db files;
+set LINK_LIBRARY		[list /home/raheem/task6/icc2_workshop_collaterals/nangate_typical.db /home/raheem/task6/icc2_workshop_collaterals/sram_32_1024_freepdk45_TT_1p0V_25C_lib.db]	;# Specify .db files;
 					;# 	for running VC-LP (vc_lp.tcl) and Formality (fm.tcl): required
 					;# 	for ICC-II without LIBRARY_CONFIGURATION_FLOW enabled: not required
 					;#	for ICC-II with LIBRARY_CONFIGURATION_FLOW enabled: required; 
@@ -391,7 +391,7 @@ set TCL_USER_PRE_SHAPING_POST_SCRIPT  "" ;# An optional Tcl file to be sourced a
 ##########################################################################################
 # 				PLACE_IO
 ##########################################################################################
-set TCL_PAD_CONSTRAINTS_FILE          "/home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/pad_placement_constraints.tcl" ;# file sourced to create everything needed by place_io to complete IO placement
+set TCL_PAD_CONSTRAINTS_FILE          "/home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/pad_placement_constraints.tcl" ;# file sourced to create everything needed by place_io to complete IO placement
                                          ;# including flip chip bumps, and io constraints
 set TCL_RDL_FILE                      "" ;# file sourced to create RDL routes
 set TCL_USER_PLACE_IO_PRE_SCRIPT      "" ;# An optional Tcl file to be sourced at the very beginning of the task
@@ -577,7 +577,7 @@ lappend search_path .
 ##########################################################################################
 set_message_info -id PVT-012 -limit 1
 set_message_info -id PVT-013 -limit 1
-set search_path "/home/prakhan/task_6/icc2_workshop_collaterals/"
+set search_path "/home/raheem/task6/icc2_workshop_collaterals/"
 set_app_var link_library "nangate_typical.db sram_32_1024_freepdk45_TT_1p0V_25C_lib.db"
 
 puts "RM-info : Completed script [info script]\n"
@@ -1012,7 +1012,7 @@ puts "\n===== FLOORPLAN COMPLETED SUCCESSFULLY =====\n"
 ################################################################################
 source -echo ./icc2_common_setup.tcl
 puts "RM-info : Running script [info script]\n"
-RM-info : Running script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/icc2_common_setup.tcl
+RM-info : Running script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/icc2_common_setup.tcl
 
 ##########################################################################################
 # Tool: IC Compiler II
@@ -1027,7 +1027,7 @@ RM-info : Running script /home/prakhan/task_6/icc2_workshop_collaterals/standalo
 set DESIGN_NAME 		"raven_wrapper" ;# Required; name of the design to be worked on; also used as the block name when scripts save or copy a block
 set LIBRARY_SUFFIX		"Nangate" ;# Suffix for the design library name ; default is unspecified   
 set DESIGN_LIBRARY 		"${DESIGN_NAME}${LIBRARY_SUFFIX}" ;# Name of the design library; default is ${DESIGN_NAME}${LIBRARY_SUFFIX}
-set REFERENCE_LIBRARY 		[list /home/prakhan/task_6/icc2_workshop_collaterals/nangate_stdcell.lef /home/prakhan/task_6/icc2_workshop_collaterals/sram/sram_32_1024_freepdk45.lef]	;# Required; a list of reference libraries for the design library.
+set REFERENCE_LIBRARY 		[list /home/raheem/task6/icc2_workshop_collaterals/nangate_stdcell.lef /home/raheem/task6/icc2_workshop_collaterals/sram/sram_32_1024_freepdk45.lef]	;# Required; a list of reference libraries for the design library.
 ;#	for library configuration flow (LIBRARY_CONFIGURATION_FLOW set to true below): 
 ;#		- specify the list of physical source files to be used for library configuration during create_lib
 ;# 	for hierarchical designs using bottom-up flows: include subblock design libraries in the list;
@@ -1037,7 +1037,7 @@ set REFERENCE_LIBRARY 		[list /home/prakhan/task_6/icc2_workshop_collaterals/nan
 ;#		  absolute paths are a requirement.
 set COMPRESS_LIBS               "false" ;# Save libs as compressed NDM; only used in DP.
 #set VERILOG_NETLIST_FILES      "/home/kunal/workshop/icc2_workshop_collaterals/pnrScripts/spi_slave.synth.v"
-set VERILOG_NETLIST_FILES	"/home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v"	;# Verilog netlist files;
+set VERILOG_NETLIST_FILES	"/home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v"	;# Verilog netlist files;
 ;# 	for DP: required
 ;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
 set UPF_FILE 			""	;# A UPF file
@@ -1061,7 +1061,7 @@ set TCL_MCMM_SETUP_FILE		"./init_design.mcmm_example.auto_expanded.tcl"	;# Speci
 ;# and scenarios; source scenario constraints which are then expanded to associated modes and corners
 ;# 	for DP: required
 ;# 	for PNR: required if INIT_DESIGN_INPUT is ASCII in icc2_pnr_setup.tcl; not required for DC_ASCII or DP_RM_NDM
-set TECH_FILE 			"/home/prakhan/task_6/icc2_workshop_collaterals/nangate.tf" 	;# A technology file; TECH_FILE and TECH_LIB are mutually exclusive ways to specify technology information; 
+set TECH_FILE 			"/home/raheem/task6/icc2_workshop_collaterals/nangate.tf" 	;# A technology file; TECH_FILE and TECH_LIB are mutually exclusive ways to specify technology information; 
 ;# TECH_FILE is recommended, although TECH_LIB is also supported in ICC2 RM. 
 set TECH_LIB			""	;# Specify the reference library to be used as a dedicated technology library;
 ;# as a best practice, please list it as the first library in the REFERENCE_LIBRARY list 
@@ -1113,7 +1113,7 @@ set LIBRARY_CONFIGURATION_FLOW	false	;# Set it to true enables library configura
 ;# Requires LINK_LIBRARY to be specified with .db files and REFERENCE_LIBRARY to be specified with physical
 ;# source files for the library configuration flow. Also search_path (in icc2_pnr_setup.tcl) should include paths 
 ;# to these .db and physical source files.
-set LINK_LIBRARY		[list /home/prakhan/task_6/icc2_workshop_collaterals/nangate_typical.db /home/prakhan/task_6/icc2_workshop_collaterals/sram_32_1024_freepdk45_TT_1p0V_25C_lib.db]	;# Specify .db files;
+set LINK_LIBRARY		[list /home/raheem/task6/icc2_workshop_collaterals/nangate_typical.db /home/raheem/task6/icc2_workshop_collaterals/sram_32_1024_freepdk45_TT_1p0V_25C_lib.db]	;# Specify .db files;
 ;# 	for running VC-LP (vc_lp.tcl) and Formality (fm.tcl): required
 ;# 	for ICC-II without LIBRARY_CONFIGURATION_FLOW enabled: not required
 ;#	for ICC-II with LIBRARY_CONFIGURATION_FLOW enabled: required; 
@@ -1147,11 +1147,11 @@ set RELEASE_DIR_PNR		"" 	;# Specify the release directory of PNR RM;
 ##########################################################################################
 set REDHAWK_SEARCH_PATH		"" 	;# Required. Search path to the NDM, reference libraries, and etc.
 puts "RM-info : Completed script [info script]\n"
-RM-info : Completed script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/icc2_common_setup.tcl
+RM-info : Completed script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/icc2_common_setup.tcl
 
 source -echo ./icc2_dp_setup.tcl
 puts "RM-info : Running script [info script]\n"
-RM-info : Running script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/icc2_dp_setup.tcl
+RM-info : Running script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/icc2_dp_setup.tcl
 
 ##########################################################################################
 # Tool: IC Compiler II 
@@ -1227,7 +1227,7 @@ set TCL_USER_PRE_SHAPING_POST_SCRIPT  "" ;# An optional Tcl file to be sourced a
 ##########################################################################################
 # 				PLACE_IO
 ##########################################################################################
-set TCL_PAD_CONSTRAINTS_FILE          "/home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/pad_placement_constraints.tcl" ;# file sourced to create everything needed by place_io to complete IO placement
+set TCL_PAD_CONSTRAINTS_FILE          "/home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/pad_placement_constraints.tcl" ;# file sourced to create everything needed by place_io to complete IO placement
 ;# including flip chip bumps, and io constraints
 set TCL_RDL_FILE                      "" ;# file sourced to create RDL routes
 set TCL_USER_PLACE_IO_PRE_SCRIPT      "" ;# An optional Tcl file to be sourced at the very beginning of the task
@@ -1385,10 +1385,10 @@ lappend search_path .
 ##########################################################################################
 set_message_info -id PVT-012 -limit 1
 set_message_info -id PVT-013 -limit 1
-set search_path "/home/prakhan/task_6/icc2_workshop_collaterals/"
+set search_path "/home/raheem/task6/icc2_workshop_collaterals/"
 set_app_var link_library "nangate_typical.db sram_32_1024_freepdk45_TT_1p0V_25C_lib.db"
 puts "RM-info : Completed script [info script]\n"
-RM-info : Completed script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/icc2_dp_setup.tcl
+RM-info : Completed script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/icc2_dp_setup.tcl
 
 ################################################################################
 # OPEN / CREATE LIBRARY
@@ -1403,9 +1403,9 @@ if {![file exists ${WORK_DIR}/${DESIGN_LIBRARY}]} {
 }
 RM-info : Opening existing library raven_wrapperNangate
 open_lib ${WORK_DIR}/${DESIGN_LIBRARY}
-Information: Loading library file '/home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/work/raven_wrapperNangate' (FILE-007)
-Information: Loading library file '/home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/CLIBs/NangateOpenCellLibrary.ndm' (FILE-007)
-Information: Loading library file '/home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/CLIBs/sram_32_1024_freepdk45_TT_1p0V_25C_lib.ndm' (FILE-007)
+Information: Loading library file '/home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/work/raven_wrapperNangate' (FILE-007)
+Information: Loading library file '/home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/CLIBs/NangateOpenCellLibrary.ndm' (FILE-007)
+Information: Loading library file '/home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/CLIBs/sram_32_1024_freepdk45_TT_1p0V_25C_lib.ndm' (FILE-007)
 Information: Auto created reference libraries are up-to-date, no need to rebuild. (LIB-084)
 {raven_wrapperNangate}
 ################################################################################
@@ -1418,283 +1418,283 @@ read_verilog \
    -top ${DESIGN_NAME} \
    ${VERILOG_NETLIST_FILES}
 Information: Reading Verilog into existing design 'raven_wrapper/init_dp' in library 'raven_wrapperNangate'; the existing design contents has been truncated. (VR-013)
-Loading verilog file '/home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v'
+Loading verilog file '/home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v'
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 20577 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 20577 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 20578 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 20578 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 20756 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 20756 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 20760 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 20760 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 21487 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 21487 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 21536 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 21536 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 21781 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 21781 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 21830 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 21830 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 21879 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 21879 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 21928 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 21928 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22320 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22320 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22369 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22369 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22418 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22418 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22467 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22467 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22516 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22516 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22565 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22565 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22614 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22614 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 22663 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 22663 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23555 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23555 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23571 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23571 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '1' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23582 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23582 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23632 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23632 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '1' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23879 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23879 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '1' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23890 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23890 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23915 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23915 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 23992 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 23992 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '1' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24000 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24000 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24007 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24007 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24041 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24041 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24049 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24049 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24056 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24056 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24096 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24096 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24097 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24097 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '1' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24102 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24102 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24143 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24143 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24153 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24153 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24159 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24159 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '1' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24182 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24182 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24192 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24192 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24198 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24198 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24217 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24217 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24226 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24226 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24235 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24235 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24253 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24253 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24283 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24283 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '1' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24331 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24331 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 24353 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 24353 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 28473 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 28473 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 90408 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 90408 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 90847 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 90847 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 90883 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 90883 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 90895 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 90895 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 90979 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 90979 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 90991 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 90991 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91003 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91003 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91015 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91015 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91027 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91027 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91039 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91039 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91051 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91051 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91063 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91063 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91075 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91075 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91087 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91087 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91099 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91099 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91111 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91111 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91123 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91123 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91135 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91135 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91147 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91147 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91159 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91159 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91171 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91171 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91183 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91183 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91195 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91195 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91207 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91207 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 91219 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 91219 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 126359 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 126359 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 126364 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 126364 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 128780 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 128780 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 128805 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 128805 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 129060 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 129060 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 129130 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 129130 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 132269 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 132269 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 133910 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 133910 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 133918 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 133918 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 134248 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134248 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 134249 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134249 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 2. Truncated.
-        	At line 134250 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134250 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '00' requires 8 bits
         	which is too large for width 5. Truncated.
-        	At line 134251 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134251 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 134252 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134252 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 134253 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134253 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0000000000000' requires 52 bits
         	which is too large for width 49. Truncated.
-        	At line 134254 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134254 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 2. Truncated.
-        	At line 134257 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134257 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '00' requires 8 bits
         	which is too large for width 6. Truncated.
-        	At line 134262 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134262 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Warning: hex constant '0' requires 4 bits
         	which is too large for width 1. Truncated.
-        	At line 134263 in /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
+        	At line 134263 in /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.synth.v. (SVR-42)
 Number of modules read: 1
 Top level ports: 47
 Total ports in all modules: 47
@@ -1709,7 +1709,7 @@ if {[file exists [which $TCL_TECH_SETUP_FILE]]} {
    source -echo $TCL_TECH_SETUP_FILE
 }
 puts "RM-info : Running script [info script]\n"
-RM-info : Running script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/init_design.tech_setup.tcl
+RM-info : Running script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/init_design.tech_setup.tcl
 
 ##########################################################################################
 # Tool: IC Compiler II 
@@ -1755,13 +1755,13 @@ if {$SITE_SYMMETRY_LIST != ""} {
 	}   	
 }
 puts "RM-info : Completed script [info script]\n"
-RM-info : Completed script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/init_design.tech_setup.tcl
+RM-info : Completed script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/init_design.tech_setup.tcl
 
 if {[file exists [which $TCL_PARASITIC_SETUP_FILE]]} {
    source -echo $TCL_PARASITIC_SETUP_FILE
 }
 puts "RM-info: Running script [info script]\n"
-RM-info: Running script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/init_design.read_parasitic_tech_example.tcl
+RM-info: Running script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/init_design.read_parasitic_tech_example.tcl
 
 ##########################################################################################
 # Tool: IC Compiler II
@@ -1778,7 +1778,7 @@ RM-info: Running script /home/prakhan/task_6/icc2_workshop_collaterals/standalon
 ########################################
 ## Parasitic tech files for read_parasitic_tech command; expand the section as needed
 set parasitic1				"temp1" ;# name of parasitic tech model 1
-set tluplus_file($parasitic1)           "/home/prakhan/task_6/icc2_workshop_collaterals/sample_45nm.tluplus" ;# TLU+ files to read for parasitic 1
+set tluplus_file($parasitic1)           "/home/raheem/task6/icc2_workshop_collaterals/sample_45nm.tluplus" ;# TLU+ files to read for parasitic 1
 set layer_map_file($parasitic1)         "" ;# layer mapping file between ITF and tech for parasitic 1
 #set parasitic2				"temp2" ;# name of parasitic tech model 2
 #set tluplus_file($parasitic2)           "/home/kunal/design/picosoc/pdk/sample_180nm.tluplus" ;# TLU+ files to read for parasitic 2
@@ -1794,10 +1794,10 @@ foreach p [array name tluplus_file] {
 	read_parasitic_tech -tlup $tluplus_file($p)  -name $p
 
 }
-RM-info: read_parasitic_tech -tlup /home/prakhan/task_6/icc2_workshop_collaterals/sample_45nm.tluplus -layermap  -name temp1
+RM-info: read_parasitic_tech -tlup /home/raheem/task6/icc2_workshop_collaterals/sample_45nm.tluplus -layermap  -name temp1
 Information: The command 'read_parasitic_tech' cleared the undo history. (UNDO-016)
 puts "RM-info: Completed script [info script]\n"
-RM-info: Completed script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/init_design.read_parasitic_tech_example.tcl
+RM-info: Completed script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/init_design.read_parasitic_tech_example.tcl
 
 ################################################################################
 # FLOORPLAN
@@ -2060,7 +2060,7 @@ if {[file exists $TCL_MCMM_SETUP_FILE]} {
    source -echo $TCL_MCMM_SETUP_FILE
 }
 puts "RM-info: Running script [info script]\n"
-RM-info: Running script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/init_design.mcmm_example.auto_expanded.tcl
+RM-info: Running script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/init_design.mcmm_example.auto_expanded.tcl
 
 ##########################################################################################
 # Tool: IC Compiler II
@@ -2095,7 +2095,7 @@ RM-info: Running script /home/prakhan/task_6/icc2_workshop_collaterals/standalon
 ########################################
 ## Scenario constraints; expand the section as needed
 set scenario1 				"func1" ;# name of scenario1
-set scenario_constraints($scenario1)    "/home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.sdc" ;# for all scenario1 specific constraints
+set scenario_constraints($scenario1)    "/home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.sdc" ;# for all scenario1 specific constraints
 #set scenario2 				"func2" ;# name of scenario2
 #set scenario_constraints($scenario2)    "/home/kunal/design/picosoc/rtl/picorv32.sdc" ;# for all scenario2 specific constraints
 ########################################
@@ -2129,7 +2129,7 @@ foreach s [array name scenario_constraints] {
 	# read_parasitic_tech_example.tcl is provided as an example.	
 }
 RM-info: current_scenario func1
-RM-info: source /home/prakhan/task_6/icc2_workshop_collaterals/raven_wrapper.sdc
+RM-info: source /home/raheem/task6/icc2_workshop_collaterals/raven_wrapper.sdc
 Information: Timer using 8 threads
 ########################################
 ## Configure analysis settings for scenarios
@@ -2148,7 +2148,7 @@ Information: No Mode reduction opportunities were found
 Information: No Corner reduction opportunities were found
 Information: No Mode, Corner or Scenario reduction was possible
 puts "RM-info: Completed script [info script]\n"
-RM-info: Completed script /home/prakhan/task_6/icc2_workshop_collaterals/standaloneFlow/init_design.mcmm_example.auto_expanded.tcl
+RM-info: Completed script /home/raheem/task6/icc2_workshop_collaterals/standaloneFlow/init_design.mcmm_example.auto_expanded.tcl
 
 ################################################################################
 # PLACEMENT CONFIG
